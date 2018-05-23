@@ -1,7 +1,6 @@
 class MyList:
     def __init__(self, start):
-        #self.wrapped = start[:] # Скопировать start: без побочных эффектов
-        self.wrapped = [] # Убедиться, что это список
+        self.wrapped = [] 
         for x in start: self.wrapped.append(x)
     def __add__(self, other):
         return MyList(self.wrapped + other)
@@ -15,7 +14,7 @@ class MyList:
         return MyList(self.wrapped[low:high])
     def append(self, node):
         self.wrapped.append(node)
-    def __getattr__(self, name): # Другие члены: sort/reverse/и так далее
+    def __getattr__(self, name): 
         return getattr(self.wrapped, name)
     def __repr__(self):
         return repr(self.wrapped)
